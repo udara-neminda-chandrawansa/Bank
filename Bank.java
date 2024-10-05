@@ -6,86 +6,88 @@ public class Bank{
 	public static ArrayList<Account> accList = new ArrayList<Account>(); // ArrayList objact to store all bank accounts
 
 	public static Account createAccount(){
-		try (Scanner myObj = new Scanner(System.in)) {
-			// Create Account
-			System.out.println("> OK! Let's create a new account for you!\n");
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
-			System.out.print("> Your Name: ");
-			String accName = myObj.nextLine();  // Read account name
+		// Create Account
+		System.out.println("> OK! Let's create a new account for you!\n");
 
-			System.out.print("> Your NIC: ");
-			int accNo = myObj.nextInt();  // Read account no
-			myObj.nextLine();  // Consume leftover newline
+		System.out.print("> Your Name: ");
+		String accName = myObj.nextLine();  // Read account name
 
-			System.out.print("> Your Account Type (Savings - 1 | Current - 2 | F/D - 3): ");
-			int accTypeNo = myObj.nextInt();  // Read account type no
-			myObj.nextLine();  // Consume leftover newline
+		System.out.print("> Your NIC: ");
+		int accNo = myObj.nextInt();  // Read account no
+		myObj.nextLine();  // Consume leftover newline
 
-			String accType; // var to store acc type (string)
+		System.out.print("> Your Account Type (Savings - 1 | Current - 2 | F/D - 3): ");
+		int accTypeNo = myObj.nextInt();  // Read account type no
+		myObj.nextLine();  // Consume leftover newline
 
-			switch (accTypeNo) {
-				case 1:
-					// savings
-					accType = "Savings Account";
-					break;
-				case 2:
-					// current
-					accType = "Current Account";
-					break;
-				default:
-					// f/d
-					accType = "F/D Account";
-					break;
-			}
+		String accType; // var to store acc type (string)
 
-			System.out.print("> Deposit Amount: ");
-			int accAmount = myObj.nextInt();  // Read cash amount
-			myObj.nextLine();  // Consume leftover newline
-
-			System.out.println();
-
-			// Create new account
-			Account a1 = new Account(accNo, accName, accType, accAmount);
-			a1.displayAllDetails();
-			System.out.println();
-			System.out.println("Thank you! Come again later!\n");
-			return a1;
+		switch (accTypeNo) {
+			case 1:
+				// savings
+				accType = "Savings Account";
+				break;
+			case 2:
+				// current
+				accType = "Current Account";
+				break;
+			default:
+				// f/d
+				accType = "F/D Account";
+				break;
 		}
+
+		System.out.print("> Deposit Amount: ");
+		int accAmount = myObj.nextInt();  // Read cash amount
+		myObj.nextLine();  // Consume leftover newline
+
+		System.out.println();
+
+		// Create new account
+		Account a1 = new Account(accNo, accName, accType, accAmount);
+		a1.displayAllDetails();
+		System.out.println();
+		System.out.println("Thank you! Come again later!\n");
+		return a1;
 	}
 
 	public static int[] depositCash(){
-		try (Scanner myObj = new Scanner(System.in)) {
-			System.out.println("> OK! Let's deposit cash to ur account!\n");
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
-			System.out.print("> Your Account No: ");
-			int accNo = myObj.nextInt(); // Read acc no
+		System.out.println("> OK! Let's deposit cash to ur account!\n");
 
-			System.out.print("> Deposit Amount: ");
-			int cashAmount = myObj.nextInt(); // Read cash amount
+		System.out.print("> Your Account No: ");
+		int accNo = myObj.nextInt(); // Read acc no
 
-			int[] retArray = {accNo, cashAmount};
+		System.out.print("> Deposit Amount: ");
+		int cashAmount = myObj.nextInt(); // Read cash amount
 
-			return retArray;
-		}
+		int[] retArray = {accNo, cashAmount};
+
+		return retArray;
 	}
 
 	public static int[] withdrawCash(){
-		try (Scanner myObj = new Scanner(System.in)) {
-			System.out.println("> OK! Let's withdraw cash from ur account!\n");
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
-			System.out.print("> Your Account No: ");
-			int accNo = myObj.nextInt(); // Read acc no
+		System.out.println("> OK! Let's withdraw cash from ur account!\n");
 
-			System.out.print("> Withdraw Amount: ");
-			int cashAmount = myObj.nextInt(); // Read cash amount
+		System.out.print("> Your Account No: ");
+		int accNo = myObj.nextInt(); // Read acc no
 
-			int[] retArray = {accNo, cashAmount};
+		System.out.print("> Withdraw Amount: ");
+		int cashAmount = myObj.nextInt(); // Read cash amount
 
-			return retArray;
-		}
+		int[] retArray = {accNo, cashAmount};
+
+		return retArray;
 	}
 
 	public static void main(String[] args) {
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+
 		// create seperator lines
 		SepLine mainSep = new SepLine("=", 30);
 		SepLine subSep = new SepLine("-", 30);
@@ -103,123 +105,122 @@ public class Bank{
 	}
 
 	public static void initiateConversation(){
-		try (Scanner myObj = new Scanner(System.in)) {
-			SepLine subSep = new SepLine("-", 30);
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+		SepLine subSep = new SepLine("-", 30);
 
-			// welcome text & sep
-			System.out.println("\n> Hello customer! What can I do for you today?\n");
-			System.out.println("> Create Account: 	1");
-			System.out.println("> Deposit Cash: 	2");
-			System.out.println("> Withdraw Cash: 	3");
-			System.out.println("> View Balance: 	4");
-			System.out.println("> Exit: 		5\n");
-			System.out.print("> ");
+		// welcome text & sep
+		System.out.println("\n> Hello customer! What can I do for you today?\n");
+		System.out.println("> Create Account: 	1");
+		System.out.println("> Deposit Cash: 	2");
+		System.out.println("> Withdraw Cash: 	3");
+		System.out.println("> View Balance: 	4");
+		System.out.println("> Exit: 		5\n");
+		System.out.print("> ");
 
-			int taskNo = myObj.nextInt(); // Read task no
-			System.out.println();
+		int taskNo = myObj.nextInt(); // Read task no
+		System.out.println();
 
-			switch(taskNo){
-				case 1:
-					// create account method (returns an 'Account' object. Catch it & add to 'accList')
-					accList.add(createAccount());
+		switch(taskNo){
+			case 1:
+				// create account method (returns an 'Account' object. Catch it & add to 'accList')
+				accList.add(createAccount());
+				subSep.drawLine();
+				/*// This works!! Accounts gets added to the 'accList'!!
+				for (Account i : accList) {
+					System.out.println(i.accAmount);
+				}
+				*/
+				initiateConversation();
+				break;
+			case 2:
+				if(accList.size() > 0){
+					//Deposit Cash
+					// This works!! 'depositCash()' returns an int[] which contains 'accNo' & 'cashAmount'!!
+					int[] catchDArray = depositCash();
+					//System.out.println(catchDArray[0] + " " + catchDArray[1]);
+					//System.out.println(accList.size());
+
+					for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
+						//System.out.println(i.accNo);
+						if(i.accNo == catchDArray[0]){
+							i.accAmount += catchDArray[1]; // add cash to previous amount
+
+							System.out.println();
+							subSep.drawLine();
+
+							System.out.println();
+							System.out.print("Deposit Made! ");
+
+							i.displayAmount();
+							System.out.println();
+						}
+					}
 					subSep.drawLine();
-					/*// This works!! Accounts gets added to the 'accList'!!
-					for (Account i : accList) {
-						System.out.println(i.accAmount);
-					}
-					*/
+
 					initiateConversation();
-					break;
-				case 2:
-					if(accList.size() > 0){
-						//Deposit Cash
-						// This works!! 'depositCash()' returns an int[] which contains 'accNo' & 'cashAmount'!!
-						int[] catchDArray = depositCash();
-						//System.out.println(catchDArray[0] + " " + catchDArray[1]);
-						//System.out.println(accList.size());
+				}else{
+					System.out.println("!!!Create an account first!!!");
+					initiateConversation();
+				}
+				break;
+			case 3:
+				if(accList.size() > 0){
+					//Withdraw Cash
+					// This works!! 'withdrawCash()' returns an int[] which contains 'accNo' & 'cashAmount'!!
+					int[] catchWArray = withdrawCash();
+					//System.out.println(catchWArray[0] + " " + catchWArray[1]);
+					//System.out.println(accList.size());
 
-						for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
-							//System.out.println(i.accNo);
-							if(i.accNo == catchDArray[0]){
-								i.accAmount += catchDArray[1]; // add cash to previous amount
+					for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
+						//System.out.println(i.accNo);
+						if(i.accNo == catchWArray[0]){
+							i.accAmount -= catchWArray[1]; // minus cash from previous amount
 
-								System.out.println();
-								subSep.drawLine();
+							System.out.println();
+							subSep.drawLine();
 
-								System.out.println();
-								System.out.print("Deposit Made! ");
+							System.out.println();
+							System.out.print("Winthdraw Made! ");
 
-								i.displayAmount();
-								System.out.println();
-							}
+							i.displayAmount();
+							System.out.println();
 						}
-						subSep.drawLine();
-
-						initiateConversation();
-					}else{
-						System.out.println("!!!Create an account first!!!");
-						initiateConversation();
 					}
-					break;
-				case 3:
-					if(accList.size() > 0){
-						//Withdraw Cash
-						// This works!! 'withdrawCash()' returns an int[] which contains 'accNo' & 'cashAmount'!!
-						int[] catchWArray = withdrawCash();
-						//System.out.println(catchWArray[0] + " " + catchWArray[1]);
-						//System.out.println(accList.size());
+					subSep.drawLine();
 
-						for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
-							//System.out.println(i.accNo);
-							if(i.accNo == catchWArray[0]){
-								i.accAmount -= catchWArray[1]; // minus cash from previous amount
-
-								System.out.println();
-								subSep.drawLine();
-
-								System.out.println();
-								System.out.print("Winthdraw Made! ");
-
-								i.displayAmount();
-								System.out.println();
-							}
+					initiateConversation();
+				}else{
+					System.out.println("!!!Create an account first!!!");
+					initiateConversation();
+				}
+				break;
+			case 4:
+				//View Balance
+				if(accList.size() > 0){
+					System.out.print("> Your Account No: ");
+					int accNo1 = myObj.nextInt(); // Read acc no
+					System.out.println();
+					
+					for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
+						if(i.accNo == accNo1){
+							subSep.drawLine();
+							System.out.println();
+							System.out.print("Data Recieved! ");
+							i.displayAmount();
+							System.out.println();
 						}
-						subSep.drawLine();
-
-						initiateConversation();
-					}else{
-						System.out.println("!!!Create an account first!!!");
-						initiateConversation();
 					}
-					break;
-				case 4:
-					//View Balance
-					if(accList.size() > 0){
-						System.out.print("> Your Account No: ");
-						int accNo1 = myObj.nextInt(); // Read acc no
-						System.out.println();
-						
-						for(Account i : accList){ // loop through 'accList' to find the account by 'accNo'
-							if(i.accNo == accNo1){
-								subSep.drawLine();
-								System.out.println();
-								System.out.print("Data Recieved! ");
-								i.displayAmount();
-								System.out.println();
-							}
-						}
-						subSep.drawLine();
-						initiateConversation();
-					}else{
-						System.out.println("!!!Create an account first!!!");
-						initiateConversation();
-					}
-					break;
-				default:
-					// exit app
-					System.out.println("Goodbye!");
-					break;
-			}
+					subSep.drawLine();
+					initiateConversation();
+				}else{
+					System.out.println("!!!Create an account first!!!");
+					initiateConversation();
+				}
+				break;
+			default:
+				// exit app
+				System.out.println("Goodbye!");
+				break;
 		}
 	}
 }
